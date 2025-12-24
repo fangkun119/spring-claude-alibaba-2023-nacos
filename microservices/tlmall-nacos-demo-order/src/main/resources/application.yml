@@ -1,0 +1,49 @@
+server:
+  port: 8060
+spring:
+  application:
+    name: tlmall-order
+  cloud:
+    nacos:
+      discovery:
+        # (1) 基础实验环境配置
+        server-addr: tlmall-nacos-server:8848
+        username: nacos
+        password: nacos
+        #
+        # (2) 指定命名空间（用于服务隔离实验）
+        # namespace: dev
+        #
+        # (3) 指定所属集群（用于集群元数据实验）
+        # cluster-name: sh-cluster
+        #
+        # (4) 设置实例元数据（用于实例元数据实验）
+        # metadata:
+        #  version: "v2.1.0"
+        #  region: "cn-shanghai"
+        #  usage: "demo"
+        #  weight: "100"
+        #
+        # (5) 指定命名空间（用于安全配置实验）
+        # namespace:fox
+        #
+        # (6) 指定Nacos集群地址（Nacos集群实验）
+        # 方案一：直连多节点
+        # 优势：无额外单点，客户端自动故障转移
+        # 劣势：不便于管理配置和运维，不推荐配置IP
+        # server-addr: 192.168.65.207:8848,192.168.65.208:8848,192.168.65.213:8848
+        #
+        # 方案二：通过 Nginx 解耦
+        # 优势：配置集中管理，便于运维
+        # 劣势：引入新的单点
+        # server-addr: nacos.tlmall.com:8848
+  datasource:
+    url: jdbc:mysql://tlmall-mysql:3306/tlmall_order?useSSL=false&characterEncoding=utf8&allowPublicKeyRetrieval=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
+    main:
+    allow-bean-definition-overriding: true
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true

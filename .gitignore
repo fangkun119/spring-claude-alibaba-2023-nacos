@@ -1,3 +1,10 @@
+# idea and flatten-pom
+.flattened-pom.xml
+.idea/
+
+# maven
+**/target/
+
 # Compiled class file
 *.class
 

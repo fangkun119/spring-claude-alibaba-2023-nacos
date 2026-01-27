@@ -8,7 +8,7 @@
         <version>${revision}</version>
         <relativePath>../../pom.xml</relativePath>
     </parent>
-    <artifactId>tlmall-user-openfeign-demo</artifactId>
+    <artifactId>tlmall-openfeign-demo-user</artifactId>
 
     <properties>
         <java.version>21</java.version>

@@ -10,9 +10,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 // 开启openFeign功能
 @EnableFeignClients
 public class TlmallUserOpenfeignDemoApplication {
-
     public static void main(String[] args) {
         SpringApplication.run(TlmallUserOpenfeignDemoApplication.class, args);
     }
-
 }

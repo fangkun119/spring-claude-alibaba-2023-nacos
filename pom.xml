@@ -31,7 +31,7 @@
         <module>microservices/tlmall-nacos-demo-user</module>
         <module>microservices/tlmall-order-config-demo</module>
         <module>microservices/tlmall-user-config-demo</module>
-        <module>microservices/tlmall-user-openfeign-demo</module>
+        <module>microservices/tlmall-openfeign-demo-user</module>
     </modules>
 
     <dependencyManagement>

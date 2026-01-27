@@ -14,20 +14,19 @@ import org.springcloudmvp.tlmallcommon.Result;
 @RequestMapping("/order")
 @Slf4j
 public class OrderController {
-
     @Autowired
     private OrderService orderService;
 
     /**
      * 根据用户id查询订单信息
+     *
      * @param userId
      * @return
      */
     @RequestMapping("/getOrder")
     public Result<?> getOrder(@RequestParam("userId") String userId) {
-
         //模拟异常
-        if(("foxxxx").equals(userId)){
+        if (("foxxxx").equals(userId)) {
             throw new IllegalArgumentException("非法参数异常");
         }
 
@@ -38,48 +37,45 @@ public class OrderController {
 //            throw new RuntimeException(e);
 //        }
 
-        log.info("根据userId:"+userId+"查询订单信息");
+        log.info("根据userId:" + userId + "查询订单信息");
         Result<?> res = null;
         try {
             res = orderService.getOrderByUserId(userId);
-        }
-        catch (BusinessException e) {
+        } catch (BusinessException e) {
             return Result.failed(e.getMessage());
         }
         return res;
-
-
     }
 
-    @RequestMapping("/getOrderById/{id}")
-    public Result<?> getOrderById(@PathVariable("id") Integer id){
 
+    @RequestMapping("/getOrderById/{id}")
+    public Result<?> getOrderById(@PathVariable("id") Integer id) {
         Result<?> res = null;
         try {
             res = orderService.getOrderById(id);
-        }
-        catch (BusinessException e) {
+        } catch (BusinessException e) {
             return Result.failed(e.getMessage());
         }
         return res;
     }
-
 
 
     /**
      * 模拟测试openFegin的接口方法规范
+     *
      * @param orderDTO
      * @return
      */
     @PostMapping("/post1")
-    public Result<?>  post1(@RequestBody OrderDTO orderDTO){
+    public Result<?> post1(@RequestBody OrderDTO orderDTO) {
         return Result.success(orderDTO);
 
     }
 
+
     @PostMapping("/post2")
-    public Result<?>  post2(@RequestBody OrderDTO orderDTO,@RequestParam("token") String token){
-        log.info("token:"+token);
+    public Result<?> post2(@RequestBody OrderDTO orderDTO, @RequestParam("token") String token) {
+        log.info("token:" + token);
         return Result.success(orderDTO);
     }
 
@@ -89,24 +85,25 @@ public class OrderController {
         return Result.success(orderDTO);
     }
 
+
     @GetMapping("/testgateway")
     public String testGateway(HttpServletRequest request) throws Exception {
         log.info("gateWay获取请求头X-Request-color："
-                +request.getHeader("X-Request-color"));
+                + request.getHeader("X-Request-color"));
         return "success";
     }
+
+
     @GetMapping("/testgateway2")
     public String testGateway(@RequestHeader("X-Request-color") String color) throws Exception {
-        log.info("gateWay获取请求头X-Request-color："+color);
+        log.info("gateWay获取请求头X-Request-color：" + color);
         return "success";
     }
+
 
     @GetMapping("/testgateway3")
     public String testGateway3(@RequestParam("color") String color) throws Exception {
-        log.info("gateWay获取请求参数color:"+color);
+        log.info("gateWay获取请求参数color:" + color);
         return "success";
     }
-
-
-
 }

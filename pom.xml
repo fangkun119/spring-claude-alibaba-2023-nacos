@@ -29,9 +29,10 @@
         <module>microservices/tlmall-nacos-demo-gateway</module>
         <module>microservices/tlmall-nacos-demo-order</module>
         <module>microservices/tlmall-nacos-demo-user</module>
-        <module>microservices/tlmall-order-config-demo</module>
+        <module>microservices/tlmall-config-demo-order</module>
         <module>microservices/tlmall-user-config-demo</module>
         <module>microservices/tlmall-openfeign-demo-user</module>
+        <module>microservices/tlmall-common</module>
     </modules>
 
     <dependencyManagement>

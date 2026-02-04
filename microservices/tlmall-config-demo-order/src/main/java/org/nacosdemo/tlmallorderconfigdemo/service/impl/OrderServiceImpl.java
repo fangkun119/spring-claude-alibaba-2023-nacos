@@ -14,21 +14,22 @@
  * limitations under the License.
  */
 
-package org.nacosdemo.tlmallorder.service.impl;
-
+package org.nacosdemo.tlmallorderconfigdemo.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.nacosdemo.tlmallorder.entity.Order;
-import org.nacosdemo.tlmallorder.mapper.OrderMapper;
-import org.nacosdemo.tlmallorder.service.OrderService;
 import org.springcloudmvp.tlmallcommon.Result;
+import org.nacosdemo.tlmallorderconfigdemo.entity.Order;
+import org.nacosdemo.tlmallorderconfigdemo.mapper.OrderMapper;
+import org.nacosdemo.tlmallorderconfigdemo.service.OrderService;
+
 
 import java.util.List;
 
 
 @Service
 public class OrderServiceImpl implements OrderService {
+
     @Autowired
     private OrderMapper orderMapper;
 
@@ -36,10 +37,5 @@ public class OrderServiceImpl implements OrderService {
     public Result<?> getOrderByUserId(String userId) {
         List<Order> list = orderMapper.getOrderByUserId(userId);
         return Result.success(list);
-    }
-
-    public Result<?> getOrderById(Integer id) {
-        Order order = orderMapper.getOrderById(id);
-        return Result.success(order);
     }
 }

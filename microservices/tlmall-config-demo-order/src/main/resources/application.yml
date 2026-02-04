@@ -1,0 +1,28 @@
+server:
+  port: 8060
+spring:
+  application:
+    name: tlmall-config-demo-order
+  cloud:
+    nacos:
+      config:
+        server-addr: tlmall-nacos-server:8848
+        username: nacos
+        password: nacos
+        namespace: ""  # ""代表使用默认的public命名空间
+  # Profile配置实验
+  # profiles:
+  #   active: mvp
+  config:
+    import:
+      - optional:nacos:tlmall-config-demo-order.yml?group=DEFAULT_GROUP
+      # Profile配置实验
+      # - optional:nacos:${spring.application.name}-${spring.profiles.active}.yml
+      - nacos:db-common.yml  # 数据库公共配置
+      - nacos:nacos-discovery.yml # Nacos注册中心配置
+      # Nacos配置加密实验
+      # - nacos:cipher-aes-nacos-discovery.yml
+# 用于查看从Nacos配置中心载入的配置
+logging:
+  level:
+    com.alibaba.cloud.nacos: debug

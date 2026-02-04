@@ -42,7 +42,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: root
-    main:
+  main:
     allow-bean-definition-overriding: true
 mybatis:
   configuration:

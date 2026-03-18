@@ -16,29 +16,40 @@ spring:
     gateway:
       # 设置路由：路由id、路由到微服务的uri、断言
       routes:
-        - id: user_route                        # 路由ID，全局唯一
-          uri: lb://tlmall-user-openfeign-demo  # lb 整合负载均衡器loadbalancer
+        # 用户服务路由
+        - id: user_route
+          uri: lb://tlmall-user-openfeign
           predicates:
-            - Path=/user/**                     # 断言，路径相匹配的进行路由
-        - id: order_route                       # 路由ID，全局唯一
-          # 测试 http://localhost:18888/order/getOrder?userId=fox
-          uri: lb://tlmall-order                # lb 整合负载均衡器loadbalancer
+            - Path=/users/**
+        # 订单服务路由：测试使用 http://localhost:18888/orders
+        - id: order_route         # 路由ID，全局唯一
+          uri: lb://tlmall-order  # lb表示负载均衡器loadbalancer, tlmall-order是下游微服务名
+          # 断言工厂
           predicates:
-            - Path=/order/**  # 断言，路径相匹配的进行路由
+            # 断言，路径相匹配的进行路由
+            - Path=/orders/**
             # Header匹配  请求中带有请求头名为 x-request-id，其值与 \d+ 正则表达式匹配
-            #- Header=X-Request-Id, \d+
-          # 配置过滤器工厂
+            # - Header=X-Request-Id, \d+
+          # 过滤器工厂
           filters:
-          #- AddRequestHeader=X-Request-color, red  #添加请求头
-          #- AddRequestParameter=color, blue  # 添加请求参数
-          #- CheckAuth=fox,男  #自定义过滤器工厂
-          #        - name: RequestRateLimiter   #限流过滤器
-          #          args:
-          #            redis-rate-limiter.replenishRate: 1 #令牌桶每秒填充速率, 指的是允许用户每秒执行多少请求，不丢弃任何请求;
-          #            redis-rate-limiter.burstCapacity: 2 #令牌桶的总容量, 指的是用户在一秒钟内允许执行的最大请求数，也就是令牌桶可以保存的令牌数, 如果将此值设置为零将阻止所有请求;
-          #            redis-rate-limiter.requestedTokens: 1   # 指的是每个请求消耗多少个令牌, 默认是1.
-          #            key-resolver: "#{@keyResolver}" # 指的是限流的时候以什么维度来判断，使用SpEL表达式按名称引用Bean
-      # 跨域配置
+            # 请求转发到tlmall-order前，自动添加请求头 X-Request-color: Red
+            # - AddRequestHeader=X-Request-color, red
+            # 请求转发到tlmall-order前，自动添加请求参数 color: blue
+            # - AddRequestParameter=color, blue
+            # 自定义过滤器工厂
+            - AddBizDomain=domain,order
+            # 限流过滤器
+            # - name: RequestRateLimiter
+            #          args:
+            #            redis-rate-limiter.replenishRate: 1 #令牌桶每秒填充速率, 指的是允许用户每秒执行多少请求，不丢弃任何请求;
+            #            redis-rate-limiter.burstCapacity: 2 #令牌桶的总容量, 指的是用户在一秒钟内允许执行的最大请求数，也就是令牌桶可以保存的令牌数, 如果将此值设置为零将阻止所有请求;
+            #            redis-rate-limiter.requestedTokens: 1   # 指的是每个请求消耗多少个令牌, 默认是1.
+            #            key-resolver: "#{@keyResolver}" # 指的是限流的时候以什么维度来判断，使用SpEL表达式按名称引用Bean
+      # 跨域配置的两种方法（使用任意一种即可，不要同时启用)
+      # 方法1：通过application.yml配置
+      # 方法2：通过下面的@Configuration类来配置 （见CorsConfig）
+      # 注意！！
+      # 下面代码只是简单演示API如何使用，生产环境上需要更严格的安全限制
       globalcors:
         cors-configurations:
           '[/**]':
@@ -48,9 +59,10 @@ spring:
               - POST
               - DELETE
               - PUT
+              - PATCH
               - OPTION
   data:
-    # 配置redis地址
+    # 配置redis地址，用于4.5.(1)小节“基于redis+lua脚本限流”
     redis:
       host: localhost
       port: 6379

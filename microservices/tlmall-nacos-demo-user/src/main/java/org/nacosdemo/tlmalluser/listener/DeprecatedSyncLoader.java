@@ -4,7 +4,7 @@ import org.nacosdemo.tlmalluser.listener.handler.NacosManualRegistrater;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
 import lombok.extern.slf4j.Slf4j;
-import org.springcloudmvp.tlmallcommon.Result;
+import org.nacosdemo.tlmallcommon.Result;
 import org.springframework.http.client.SimpleClientHttpRequestFactory;
 import org.springframework.retry.support.RetryTemplate;
 import org.springframework.web.client.RestTemplate;

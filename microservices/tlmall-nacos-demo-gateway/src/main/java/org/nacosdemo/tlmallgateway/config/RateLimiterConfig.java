@@ -5,9 +5,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import reactor.core.publisher.Mono;
 
-//@Configuration
+// 用于配置Redis限流，取消@Configuration前面的注释让keyResolver Bean生效
+// @Configuration
 public class RateLimiterConfig {
-
     @Bean
     KeyResolver keyResolver() {
         //参数限流

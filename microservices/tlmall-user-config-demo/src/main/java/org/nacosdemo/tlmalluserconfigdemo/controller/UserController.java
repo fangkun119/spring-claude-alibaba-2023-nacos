@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springcloudmvp.tlmallcommon.Result;
+import org.nacosdemo.tlmallcommon.Result;
 import org.nacosdemo.tlmalluserconfigdemo.feign.OrderFeignService;
 
 @RestController

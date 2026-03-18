@@ -14,22 +14,13 @@
  * limitations under the License.
  */
 
-package org.springcloudmvp.tlmallcommon;
+package org.nacosdemo.tlmallcommon;
 
-public interface IResult {
 
-    /**
-     * Get result code.
-     *
-     * @return result code
-     */
-    Integer getCode();
+public class BusinessException extends RuntimeException {
 
-    /**
-     * Get result message.
-     *
-     * @return result message
-     */
-    String getMessage();
+    public BusinessException(String message) {
+        super(message);
+    }
 
 }

@@ -8,8 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.*;
-import org.springcloudmvp.tlmallcommon.BusinessException;
-import org.springcloudmvp.tlmallcommon.Result;
+import org.nacosdemo.tlmallcommon.BusinessException;
+import org.nacosdemo.tlmallcommon.Result;
 import org.nacosdemo.tlmallorderconfigdemo.dto.OrderDTO;
 import org.nacosdemo.tlmallorderconfigdemo.service.OrderService;
 

@@ -22,7 +22,7 @@ import org.springframework.stereotype.Service;
 import org.nacosdemo.tlmallorder.entity.Order;
 import org.nacosdemo.tlmallorder.mapper.OrderMapper;
 import org.nacosdemo.tlmallorder.service.OrderService;
-import org.springcloudmvp.tlmallcommon.Result;
+import org.nacosdemo.tlmallcommon.Result;
 
 import java.util.List;
 

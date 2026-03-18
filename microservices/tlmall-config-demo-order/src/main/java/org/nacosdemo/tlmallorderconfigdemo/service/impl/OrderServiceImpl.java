@@ -18,7 +18,7 @@ package org.nacosdemo.tlmallorderconfigdemo.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springcloudmvp.tlmallcommon.Result;
+import org.nacosdemo.tlmallcommon.Result;
 import org.nacosdemo.tlmallorderconfigdemo.entity.Order;
 import org.nacosdemo.tlmallorderconfigdemo.mapper.OrderMapper;
 import org.nacosdemo.tlmallorderconfigdemo.service.OrderService;

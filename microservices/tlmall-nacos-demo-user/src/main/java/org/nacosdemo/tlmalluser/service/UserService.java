@@ -2,7 +2,7 @@ package org.nacosdemo.tlmalluser.service;
 
 import lombok.extern.slf4j.Slf4j;
 import org.nacosdemo.tlmalluser.config.RestConfig;
-import org.springcloudmvp.tlmallcommon.Result;
+import org.nacosdemo.tlmallcommon.Result;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

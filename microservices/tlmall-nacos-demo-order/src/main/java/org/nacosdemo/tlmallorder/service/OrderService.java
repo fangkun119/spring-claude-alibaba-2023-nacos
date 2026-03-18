@@ -17,7 +17,7 @@
 package org.nacosdemo.tlmallorder.service;
 
 
-import org.springcloudmvp.tlmallcommon.Result;
+import org.nacosdemo.tlmallcommon.Result;
 
 
 public interface OrderService {

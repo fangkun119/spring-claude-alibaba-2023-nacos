@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.springcloudmvp.tlmallcommon;
+package org.nacosdemo.tlmallcommon;
 
 
 public class Result<T> {

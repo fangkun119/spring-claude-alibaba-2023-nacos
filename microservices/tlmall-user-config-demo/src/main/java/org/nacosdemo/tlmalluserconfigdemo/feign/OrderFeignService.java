@@ -1,11 +1,9 @@
 package org.nacosdemo.tlmalluserconfigdemo.feign;
 
-import feign.Param;
-import feign.RequestLine;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springcloudmvp.tlmallcommon.Result;
+import org.nacosdemo.tlmallcommon.Result;
 
 
 @FeignClient(value = "tlmall-order-config-demo",path = "/order")

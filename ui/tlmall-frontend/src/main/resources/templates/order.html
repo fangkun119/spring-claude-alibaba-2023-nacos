@@ -6,7 +6,7 @@
     <script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
 </head>
 <body>
-<div >
+<div>
     <table border="1">
         <thead>
         <tr>
@@ -24,7 +24,7 @@
 <input type="button" value="订单列表" onclick="getData()">
 <script>
     function getData() {
-        $.get('http://localhost:18888/order/getOrder?userId=fox',function(data){
+        $.get('http://tlmall-gateway:18888/orders?userId=fox',function(data){
             console.log(data.data)
             var list = data.data;
             var str = '';

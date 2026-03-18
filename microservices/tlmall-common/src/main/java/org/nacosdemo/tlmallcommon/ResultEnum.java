@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.springcloudmvp.tlmallcommon;
+package org.nacosdemo.tlmallcommon;
 
 /**
  * Integrated Example common result enum class.

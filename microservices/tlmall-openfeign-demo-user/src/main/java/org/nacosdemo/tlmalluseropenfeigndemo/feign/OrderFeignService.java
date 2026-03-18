@@ -1,11 +1,9 @@
 package org.nacosdemo.tlmalluseropenfeigndemo.feign;
 
-import feign.Param;
-import feign.RequestLine;
 import org.nacosdemo.tlmalluseropenfeigndemo.config.FeignConfig;
 import org.nacosdemo.tlmalluseropenfeigndemo.feign.dto.OrderDTO;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springcloudmvp.tlmallcommon.Result;
+import org.nacosdemo.tlmallcommon.Result;
 import org.springframework.web.bind.annotation.*;
 
 /**

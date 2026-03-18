@@ -5,7 +5,7 @@ import org.nacosdemo.tlmalluseropenfeigndemo.controller.data.OrderRequest;
 import org.nacosdemo.tlmalluseropenfeigndemo.feign.dto.OrderDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import org.springcloudmvp.tlmallcommon.Result;
+import org.nacosdemo.tlmallcommon.Result;
 import org.nacosdemo.tlmalluseropenfeigndemo.feign.OrderFeignService;
 
 @Slf4j

@@ -2,12 +2,10 @@ package org.nacosdemo.tlmalluser.listener;
 
 import lombok.extern.slf4j.Slf4j;
 import org.nacosdemo.tlmalluser.listener.handler.NacosInstanceStatusManager;
-import org.springcloudmvp.tlmallcommon.Result;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.http.client.SimpleClientHttpRequestFactory;
 import org.springframework.retry.support.RetryTemplate;
-import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 /**
